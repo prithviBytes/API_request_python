@@ -15,7 +15,12 @@ response = requests.get(
 )
 
 data = response.json()["results"]
-print(f"I have {len(data)} jokes on {query}, Here is one of those:")
 
-joke = choice(data)["joke"]
-print(joke)
+if len(data):
+    print(f"I have {len(data)} jokes on {query}, Here is one of those:")
+    joke = choice(data)["joke"]
+    print(joke)
+else:
+    print(f"Sorry!!! I donot have any jokes on {query}. Try Again.")
+
+
